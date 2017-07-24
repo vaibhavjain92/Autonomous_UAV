@@ -1,7 +1,21 @@
 %Remove noise from the given image
 %add path
-addpath('D:\New folder (2)');
+addpath('D:\Vaibhav\Autonomous_UAV-master\Path_detection');
 
+%add video
+vid = VideoReader('Drone.mp4');
+numFrames = vid.NumberOfFrames;
+n=numFrames;
+%frames to read  = 300
+
+path = 'D:\Vaibhav\Autonomous_UAV-master\Path_detection\Images\';
+for i = 1:2:300
+    frames = read(vid,i);
+    
+    imwrite(frames, [path, 'Image' int2str(i),  '.jpg'])
+    %imwrite(frames,['Image' int2str(i), '.jpg']);
+    %im(i)=image(frames);
+end
 %Load image
 img = imread('Above_tunnel.png');
 % imshow(img);
